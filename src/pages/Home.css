@@ -1,0 +1,121 @@
+.background1 {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  filter: brightness(35%) blur(1px);
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+
+.intro {
+  line-height: 100vh;
+  font-size: 11em;
+  font-weight: 200;
+  text-align: center;
+  margin: 0;
+}
+
+
+.home-page {
+  /* header height is 44 px + 0.875rem * 1.75 line-height */
+  height: calc(100vh-44px-1.53125rem);
+  width: 100vw;
+}
+.about-section {
+  padding: 2em;
+  background-color: black;
+  margin: 2em auto;
+  color: lightgray;
+  display: flex;
+}
+
+.about-carousel {
+  width: 40%;
+  margin-right: 5em;
+  margin-left: 5em;
+  margin-top: 10em;
+  max-height: 85vh;
+  margin-bottom: 3rem;
+}
+
+.biography {
+  display: flex;
+  font-weight: 200;
+  font-size: 3em;
+  margin-top: 0;
+  width: 50%;
+  align-self: right;
+  flex-direction: column;
+  justify-self: right;
+}
+
+.about-image {
+  width: 100%;
+}
+
+.biography-title {
+  font-size: 5em;
+  font-weight: 300;
+  margin-bottom: 0.2em;
+  width: 100%;
+}
+
+
+.biography-detail {
+  padding-left: 1.75em;
+  padding-right: 1em;
+  width: 80%;
+}
+
+.detail{
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  font-weight: lighter;
+  text-align: justify;
+}
+
+.about-carousel {
+  --swiper-theme-color: lightgray;
+  max-width: 100vh;
+}
+.projects {
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  font-size: 11em;
+  font-weight: 200;
+  /* text-align: center; */
+  margin: 0;
+}
+
+.column-div {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+  margin-left: 5%;
+}
+
+
+.contact-button {
+  --variant-textColor: lightgray !important;
+  --variant-outlinedColor: lightgray !important;
+  /* --variant-outlinedBorder: rgba(25, 118, 210, 0.5); */
+  --variant-containedColor: #fff;
+  padding: 2em;
+}
+
+.projects-divider {
+  display: flex;
+}
+
+.projects-carousel {
+  flex-basis: 45%;
+  /* margin-right: 2%; */
+  margin-left: 2%;
+  margin-top: 0.5%;
+  max-height: 85vh;
+  --swiper-theme-color: lightgray;
+}

@@ -46,17 +46,7 @@ export default function Home() {
         <p className="intro">Hi, I'm Quan</p>
         <img src="background.png" className="background1"/>
       </div>
-      {/* <div className="carousel-section">
-        <Slide direction="left" in={true} timeout={1000}>
-          <div className="carousel-item">Software Developer</div>
-        </Slide>
-        <Slide direction="left" in={true} timeout={2000}>
-          <div className="carousel-item">Tech Enthusiast</div>
-        </Slide>
-        <Slide direction="left" in={true} timeout={3000}>
-          <div className="carousel-item">Lifelong Learner</div>
-        </Slide>
-      </div> */}
+      {/*  */}
       
       <div className="home-page about-section">
         <Swiper className="about-carousel"
@@ -83,6 +73,24 @@ export default function Home() {
             Boy Scout, airsofter, photographer, and developer. I enjoy building software that solves real-world problems and learning about new technologies. When I'm not coding, you can find me outdoors exploring nature or capturing moments through my camera lens.
           </p>
           </Slide>
+        </div>
+      </div>
+
+      <div className="home-page pics-section">
+        <div className="pics">
+          <img className="about-image" src="pic1.jpg"></img>
+        </div>
+        <div className="pics">
+          <img className="about-image" src="pic2.jpg"></img>
+        </div>
+        <div className="pics">
+          <img className="about-image" src="pic3.jpg"></img>
+        </div>
+        <div className="pics">
+          <img className="about-image" src="pic4.jpg"></img>
+        </div>
+        <div className="pics">
+          <img className="about-image" src="pic5.jpg"></img>
         </div>
       </div>
 

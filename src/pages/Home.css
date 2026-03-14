@@ -1,6 +1,10 @@
+:root{
+  overflow-x: hidden;
+}
+
 .background1 {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: -1;
   filter: brightness(35%) blur(1px);
@@ -18,27 +22,46 @@
   margin: 0;
 }
 
-
 .home-page {
   /* header height is 44 px + 0.875rem * 1.75 line-height */
   height: calc(100vh-44px-1.53125rem);
   width: 100vw;
 }
+
+.pics-section {
+  padding: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-self: center;
+  width: 88%;
+}
+
+.pics {
+  flex-basis: 20%;
+  
+}
+
 .about-section {
-  padding: 2em;
+  /* padding: 2em; */
   background-color: black;
-  margin: 2em auto;
+  /* margin: 2em auto; */
   color: lightgray;
   display: flex;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .about-carousel {
+  margin-right: 4rem !important;
+  margin-left: 4rem !important;
   width: 40%;
-  margin-right: 5em;
-  margin-left: 5em;
   margin-top: 10em;
   max-height: 85vh;
   margin-bottom: 3rem;
+  --swiper-theme-color: lightgray;
+  max-width: 100vh;
 }
 
 .biography {
@@ -77,10 +100,7 @@
   text-align: justify;
 }
 
-.about-carousel {
-  --swiper-theme-color: lightgray;
-  max-width: 100vh;
-}
+
 .projects {
   padding-right: 5rem;
   padding-bottom: 2rem;
@@ -95,7 +115,7 @@
   display: flex;
   flex-direction: column;
   flex-basis: 40%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
 
 
@@ -109,12 +129,14 @@
 
 .projects-divider {
   display: flex;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .projects-carousel {
+  margin-right: 0 !important;  
+  margin-left: 0 !important;
   flex-basis: 45%;
-  /* margin-right: 2%; */
-  margin-left: 2%;
   margin-top: 0.5%;
   max-height: 85vh;
   --swiper-theme-color: lightgray;

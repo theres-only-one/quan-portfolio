@@ -5,6 +5,9 @@ import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 
 import Header from './components/Header.tsx';
 import Home from './pages/Home.tsx';
+import About from './pages/About.tsx';
+import Projects from './pages/Projects.tsx';
+import NoPage from './pages/NoPage.tsx';
 import Footer from './components/Footer.tsx';
 
 const theme = createTheme({
@@ -32,7 +35,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home/>,
       },
-      /*
+      
       {
         path: "/about",
         element: <About/>,
@@ -45,7 +48,6 @@ const router = createBrowserRouter([
         path: "*",
         element: <NoPage/>,
       }
-      */
     ]
   }
 ]);

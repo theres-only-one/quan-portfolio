@@ -23,17 +23,6 @@ export default function Home() {
     setPage3Transition(true);
   };
 
-  const carouselImages = [
-    "about1.jpg",
-    "about2.JPG",
-    "about3.JPG",  
-  ];
-
-  const carousel2Images = [
-    "project1.jpg",
-    "project2.jpg",
-  ];
-
   return (
     <>
       <div className="home-page">
@@ -52,8 +41,12 @@ export default function Home() {
           slidesPerView={1}
         >
           {
-            carouselImages.map((img, index) =>
-              <SwiperSlide key={index}><img src={img}/></SwiperSlide>
+            [
+              "about1.jpg",
+              "about2.JPG",
+              "about3.JPG",  
+            ].map((img) =>
+              <SwiperSlide key={img}><img src={img}/></SwiperSlide>
             )
           }
         </Swiper>
@@ -68,23 +61,21 @@ export default function Home() {
           </Slide>
         </div>
       </div>
-
+      
       <div className="home-page pics-section">
-        <div className="pics">
-          <img src="pic1.jpg"/>
-        </div>
-        <div className="pics">
-          <img src="pic2.jpg"/>
-        </div>
-        <div className="pics">
-          <img src="pic3.jpg"/>
-        </div>
-        <div className="pics">
-          <img src="pic4.jpg"/>
-        </div>
-        <div className="pics">
-          <img src="pic5.jpg"/>
-        </div>
+        {
+          [
+            "pic1.jpg",
+            "pic2.jpg",
+            "pic3.jpg",
+            "pic4.JPG",
+            "pic5.jpg"
+          ].map((img) =>
+            <div className="pics" key={img}>
+              <img src={img}/>
+            </div>
+          )
+        }
       </div>
 
       <div className="home-page projects-section">
@@ -106,8 +97,13 @@ export default function Home() {
           slidesPerView={1}
         >
           {
-            carousel2Images.map((img, index) =>
-              <SwiperSlide key={index}><img src={img}/></SwiperSlide>
+            [
+              "project1.jpg",
+              "project2.jpg",
+              "project3.png"
+            ]
+            .map((img) =>
+              <SwiperSlide key={img}><img src={img}/></SwiperSlide>
             )
           }
         </Swiper>

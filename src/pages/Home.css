@@ -16,9 +16,9 @@
 .swiper {
   margin: 0 !important; /* Remove default margins */
   --swiper-theme-color: lightgray; /* Override default color */
-
+  
   flex-basis: 50%;
-  max-height: 90vh;
+  max-height: calc(90vh - 44px - 1.53125rem);
 }
 
 .swiper-slide img {
@@ -84,7 +84,7 @@
 /* Page 3 styling */
 
 .pics-section {
-  padding: 0 2rem; /* top/bottom, left/right */
+  padding: 0 5rem; /* top/bottom, left/right */
   gap: 1.5rem;
 }
 

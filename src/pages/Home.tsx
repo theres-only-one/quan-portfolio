@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Home() {
   const [page2Transition, setPage2Transition] = useState(false);
-  const [page3Transition, setPage3Transition] = useState(false);
+  const [page4Transition, setPage4Transition] = useState(false);
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => { //cleanup event listener
@@ -19,8 +19,8 @@ export default function Home() {
   const handleScroll = () => {
     window.scrollY > window.innerHeight * 0.5 && !page2Transition &&
     setPage2Transition(true);
-    window.scrollY > window.innerHeight * 1.5 && !page3Transition &&
-    setPage3Transition(true);
+    window.scrollY > window.innerHeight * 2.5 && !page4Transition &&
+    setPage4Transition(true);
   };
 
   return (
@@ -44,7 +44,8 @@ export default function Home() {
             [
               "about1.jpg",
               "about2.JPG",
-              "about3.JPG",  
+              "about3.JPG",
+              "about4.jpg",
             ].map((img) =>
               <SwiperSlide key={img}><img src={img}/></SwiperSlide>
             )
@@ -80,10 +81,10 @@ export default function Home() {
 
       <div className="home-page projects-section">
         <div className="projects-text-column">
-          <Slide direction="left" in={page3Transition} timeout={1500} appear>
+          <Slide direction="right" in={page4Transition} timeout={2000} appear>
             <h1 className="projects-title">Projects</h1>
           </Slide>
-          <Slide direction="right" in={page3Transition} timeout={2000} appear>
+          <Slide direction="right" in={page4Transition} timeout={1500} appear>
             <p className="detail">My projects reflect a mix of community service, independent initiatives, and hands-on problem solving. I have completed 500+ hours of community service, contributing to local programs, volunteer efforts, and service-oriented initiatives that support my community. Alongside service work, I pursue personal projects that involve building practical tools, improving workflows, and exploring technical and analytical challenges. Across all projects, I emphasize responsibility, consistency, and learning through real-world application.</p>
           </Slide>
         </div>
@@ -100,7 +101,7 @@ export default function Home() {
             [
               "project1.jpg",
               "project2.jpg",
-              "project3.png"
+              // "project3.png"
             ]
             .map((img) =>
               <SwiperSlide key={img}><img src={img}/></SwiperSlide>

@@ -18,7 +18,7 @@
   --swiper-theme-color: lightgray; /* Override default color */
   
   flex-basis: 50%;
-  max-height: calc(90vh - 44px - 1.53125rem);
+  max-height: 85vh;
 }
 
 .swiper-slide img {
@@ -52,11 +52,12 @@
 /* Page 2 styling */
 
 .about-section {
+  margin-top: 15rem;
   gap: 4rem;
 }
 
 .about-carousel {
-  max-width: calc(90vh * 3 / 4); /* max-height multiplied by aspect ratio */
+  max-width: calc(85vh * 3 / 4); /* max-height multiplied by aspect ratio */
 }
 
 .biography {
@@ -69,9 +70,10 @@
 }
 
 .biography-title {
-  font-size: 15rem;
-  font-weight: 300;
+  font-size: 11rem;
+  font-weight: 200;
   margin-bottom: 0.2rem;
+  margin-top: 0;
   width: 100%;
 }
 
@@ -104,7 +106,7 @@
 }
 
 .projects-carousel {
-  max-width: 90vh; /* Aspect ratio for projects-carousel is 1 */
+  max-width: 85vh; /* Aspect ratio for projects-carousel is 1 */
 }
 
 .projects-text-column {

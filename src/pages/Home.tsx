@@ -1,9 +1,11 @@
 import "./Home.css";
+import { motion, useScroll, useTransform } from "motion/react"
 import { Slide } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 // Import Swiper React components
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { MotionStyle } from "motion";
 
 
 export default function Home() {
@@ -23,11 +25,36 @@ export default function Home() {
     setPage4Transition(true);
   };
 
+  const { scrollYProgress } = useScroll();
+
+  // const filter2 = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.3],
+  //   []
+  // );
+
+  const filter = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    ["blur(0px)", "blur(20px)"]
+  );
+
+  const parallaxEffect = useTransform(
+    scrollYProgress,
+    [0.5, 0.6],
+    ["translateY(0px)", "translateY(-200px)"]
+  );
+
+  console.log("scrollYProgress", scrollYProgress);
   return (
     <>
       <div className="home-page">
-        <p className="intro">Hi, I'm Quan</p>
-        <img src="background.png" className="background"/>
+          <p className="intro">Hi, I'm Quan</p>
+        <motion.div className="background" 
+          style={{ filter }}
+        >
+          <img src="background.png" />
+        </motion.div>
       </div>
       
       <div className="home-page about-section">
@@ -68,13 +95,12 @@ export default function Home() {
           [
             "pic1.jpg",
             "pic2.jpg",
-            "pic3.jpg",
             "pic4.JPG",
             "pic5.jpg"
           ].map((img) =>
-            <div className="pics" key={img}>
-              <img src={img}/>
-            </div>
+            <motion.div className="pics" key={img} style={{ parallaxEffect }as MotionStyle}>
+                <img src={img}/>
+            </motion.div>
           )
         }
       </div>

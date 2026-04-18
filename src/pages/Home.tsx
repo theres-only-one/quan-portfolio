@@ -93,14 +93,17 @@ export default function Home() {
       <div className="home-page pics-section">
         {
           [
-            "pic1.jpg",
-            "pic2.jpg",
-            "pic4.JPG",
-            "pic5.jpg"
-          ].map((img) =>
-            <motion.div className="pics" key={img} style={{ parallaxEffect }as MotionStyle}>
-                <img src={img}/>
-            </motion.div>
+            {img:"pic1.jpg", caption:"Pic 1"},
+            {img:"pic2.jpg", caption:"Pic 2"},
+            {img:"pic4.JPG", caption:"Pic 4"},
+            {img:"pic5.jpg", caption:"Pic 5"}
+          ].map(({ img, caption }) =>
+            <div key={img}>
+              <motion.div className="pics" style={{ parallaxEffect }as MotionStyle}>
+                  <img src={img}/>
+              </motion.div>
+              <p>{caption}</p>
+            </div>
           )
         }
       </div>

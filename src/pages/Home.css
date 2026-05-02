@@ -96,14 +96,22 @@
   margin: 15rem 0;
 }
 
-.pics-section .pics {
-  flex-basis: 25%;
-  height: calc(((100vw - 6.6rem) / 3) - 2rem);
+.pics-section .figure {
+  flex-basis: 25%; /* 4 images in the row */
+}
+
+.pics-section .parallax-wrapper {
+  /* Make div shorter than the image it wraps. Given 4 images in the row, 3rem
+     padding (both sides), and 3x 0.2rem gaps, the width of each image is equal
+     to (100vw - 6.6rem) / 300 * 75. Setting height equal to width results in a
+     vertical overflow of 25%. Changing the multiplier at the end changes the 
+     visible percentage of the image. */
+  height: calc(((100vw - 6.6rem) / 300 * 90));
   overflow-y: hidden;
 }
 
-.pics-section .pics img {
-  width: 100%; /* Fit container divs */
+.pics-section .parallax-wrapper img {
+  width: 100%; /* Fit parallax wrapper's width (will overflow height) */
 }
 
 /* Page 4 styling */

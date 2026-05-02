@@ -39,10 +39,10 @@ export default function Home() {
     ["blur(0px)", "blur(20px)"]
   );
 
-  const parallaxEffect = useTransform(
+  const foregroundY = useTransform(
     scrollYProgress,
-    [0.5, 0.6],
-    ["translateY(0px)", "translateY(-200px)"]
+    [0.45, 0.75],
+    ["0%", "-10%"] // Adjust the parallax effect as needed
   );
 
   console.log("scrollYProgress", scrollYProgress);
@@ -91,22 +91,22 @@ export default function Home() {
       </div>
       
       <div className="home-page pics-section">
-        {
-          [
-            {img:"pic1.jpg", caption:"Pic 1"},
-            {img:"pic2.jpg", caption:"Pic 2"},
-            {img:"pic4.JPG", caption:"Pic 4"},
-            {img:"pic5.jpg", caption:"Pic 5"}
-          ].map(({ img, caption }) =>
-            <div key={img}>
-              <motion.div className="pics" style={{ parallaxEffect }as MotionStyle}>
-                  <img src={img}/>
-              </motion.div>
-              <p>{caption}</p>
-            </div>
-          )
-        }
-      </div>
+			{
+				[
+					{img:"pic1.jpg", caption:"Pic 1"},
+					{img:"pic2.jpg", caption:"Pic 2"},
+					{img:"pic4.JPG", caption:"Pic 4"},
+					{img:"pic5.jpg", caption:"Pic 5"}
+				].map(({ img, caption }) =>
+					<div className="figure" key={img}>
+						<div className="parallax-wrapper">
+							<motion.img src={img} style={{ y: foregroundY }}/>
+						</div>
+						<p>{caption}</p>
+					</div>
+				)
+			}
+		</div>
 
       <div className="home-page projects-section">
         <div className="projects-text-column">

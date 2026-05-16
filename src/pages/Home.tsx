@@ -41,7 +41,7 @@ export default function Home() {
 
   const foregroundY = useTransform(
     scrollYProgress,
-    [0.45, 0.75],
+    [0.4, 0.75],
     ["0%", "-10%"] // Adjust the parallax effect as needed
   );
 
@@ -67,12 +67,13 @@ export default function Home() {
           spaceBetween={0}
           slidesPerView={1}
         >
+        {/*  */}
           {
             [
               "about1.jpg",
               "about2.JPG",
               "about3.JPG",
-              "about4.jpg",
+              "about4.jpg"
             ].map((img) =>
               <SwiperSlide key={img}><img src={img}/></SwiperSlide>
             )
@@ -82,18 +83,24 @@ export default function Home() {
           <Slide direction="left" in={page2Transition} timeout={1000} appear>
             <h1 className="biography-title">I am a...</h1>
           </Slide>
-          <Slide direction="left" in={page2Transition} timeout={2000} appear>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <p className="biography-detail detail">
               Boy Scout, airsofter, photographer, and developer. I enjoy building software that solves real-world problems and learning about new technologies. When I'm not coding, you can find me outdoors exploring nature or capturing moments through my camera lens.
             </p>
-          </Slide>
+          </motion.div>
+  
+
         </div>
       </div>
       
       <div className="home-page pics-section">
 			{
 				[
-					{img:"pic1.jpg", caption:"Pic 1"},
+					{img:"pic1.jpg", caption:"Sunset at Camp Chawanakee"},
 					{img:"pic2.jpg", caption:"Pic 2"},
 					{img:"pic4.JPG", caption:"Pic 4"},
 					{img:"pic5.jpg", caption:"Pic 5"}

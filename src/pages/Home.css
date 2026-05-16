@@ -106,7 +106,7 @@
      to (100vw - 6.6rem) / 300 * 75. Setting height equal to width results in a
      vertical overflow of 25%. Changing the multiplier at the end changes the 
      visible percentage of the image. */
-  height: calc(((100vw - 6.6rem) / 300 * 90));
+  height: calc(((100vw - 6.6rem) / 300 * 85));
   overflow-y: hidden;
 }
 

@@ -47,7 +47,7 @@ export default function Home() {
 
   console.log("scrollYProgress", scrollYProgress);
   return (
-    <>
+    <main>
       <div className="home-page">
           <p className="intro">Hi, I'm Quan</p>
         <motion.div className="background" 
@@ -145,6 +145,6 @@ export default function Home() {
           }
         </Swiper>
       </div>
-    </>
+    </main>
   );
 }

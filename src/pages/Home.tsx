@@ -1,55 +1,56 @@
 import "./Home.css";
-import { motion, useScroll, useTransform } from "motion/react"
-import { Slide } from '@mui/material';
-import { use, useEffect, useState } from 'react';
+import { motion, stagger, useScroll, useTransform } from "motion/react"
 // Import Swiper React components
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import type { MotionStyle } from "motion";
 
 
 export default function Home() {
-  const [page2Transition, setPage2Transition] = useState(false);
-  const [page4Transition, setPage4Transition] = useState(false);
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => { //cleanup event listener
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); //runs once on component mount
-
-  const handleScroll = () => {
-    window.scrollY > window.innerHeight * 0.5 && !page2Transition &&
-    setPage2Transition(true);
-    window.scrollY > window.innerHeight * 2.5 && !page4Transition &&
-    setPage4Transition(true);
-  };
-
   const { scrollYProgress } = useScroll();
 
-  // const filter2 = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.3],
-  //   []
-  // );
-
+  // Scroll-triggered animation for first page background
   const filter = useTransform(
     scrollYProgress,
     [0, 0.3],
     ["blur(0px)", "blur(20px)"]
   );
 
+  // Scroll-triggered parallax animation for pics-section
   const foregroundY = useTransform(
     scrollYProgress,
     [0.4, 0.75],
-    ["0%", "-10%"] // Adjust the parallax effect as needed
+    ["0%", "-15%"] // Adjust the parallax effect magnitude as needed
   );
 
-  console.log("scrollYProgress", scrollYProgress);
+  /* Paragraphs cannot be animated word by word or line by line, so split
+     paragraphs into children containing 1 word each. */
+  const paragraphAnimation = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        delayChildren: stagger(0.01), // Stagger children by 0.01 seconds
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+  }
+
+  // Children of paragraphs containing 1 word each
+  const wordAnimation = {
+    visible: { clipPath: "inset(0% 0% 0% 0%)" },
+    hidden:  { clipPath: "inset(100% 0% 0% 0%)" },
+  }
+
+
   return (
     <main>
       <div className="home-page">
-          <p className="intro">Hi, I'm Quan</p>
+        <p className="intro">Hi, I'm Quan</p>
         <motion.div className="background" 
           style={{ filter }}
         >
@@ -67,7 +68,6 @@ export default function Home() {
           spaceBetween={0}
           slidesPerView={1}
         >
-        {/*  */}
           {
             [
               "about1.jpg",
@@ -79,50 +79,90 @@ export default function Home() {
             )
           }
         </Swiper>
+
         <div className="biography">
-          <Slide direction="left" in={page2Transition} timeout={1000} appear>
-            <h1 className="biography-title">I am a...</h1>
-          </Slide>
-          <motion.div
+          <motion.h1 className="biography-title"
             initial="hidden"
             whileInView="visible"
+            variants={ paragraphAnimation }
             viewport={{ once: true }}
           >
-            <p className="biography-detail detail">
-              Boy Scout, airsofter, photographer, and developer. I enjoy building software that solves real-world problems and learning about new technologies. When I'm not coding, you can find me outdoors exploring nature or capturing moments through my camera lens.
-            </p>
+            {
+              ("I am a...").split(' ').map((word: string) =>
+                <motion.span variants={wordAnimation}>{word + ' '}</motion.span>
+              )
+            }
+          </motion.h1>
+          <motion.div className="biography-detail detail"
+            initial="hidden"
+            whileInView="visible"
+            variants={ paragraphAnimation }
+            viewport={{ once: true }}
+          >
+            {
+              ("Boy Scout, airsofter, photographer, and developer. I enjoy " +
+               "building software that solves real-world problems and " +
+               "learning about new technologies. When I'm not coding, you " +
+               "can find me outdoors exploring nature or capturing moments " +
+               "through my camera lens."
+              ).split(' ').map((word: string) =>
+                <motion.span variants={wordAnimation}>{word + ' '}</motion.span>
+              )
+            }
           </motion.div>
-  
-
         </div>
       </div>
       
       <div className="home-page pics-section">
-			{
-				[
-					{img:"pic1.jpg", caption:"Sunset at Camp Chawanakee"},
-					{img:"pic2.jpg", caption:"Pic 2"},
-					{img:"pic4.JPG", caption:"Pic 4"},
-					{img:"pic5.jpg", caption:"Pic 5"}
-				].map(({ img, caption }) =>
-					<div className="figure" key={img}>
-						<div className="parallax-wrapper">
-							<motion.img src={img} style={{ y: foregroundY }}/>
-						</div>
-						<p>{caption}</p>
-					</div>
-				)
-			}
-		</div>
+        {
+          [
+            {img:"pic1.jpg", caption:"A view worth the trek at Camp Chawanakee"},
+            {img:"pic2.jpg", caption:"Backcountry snow camping"},
+            {img:"pic4.JPG", caption:"Backpacking the California coast (Point Reyes)"},
+            {img:"pic5.jpg", caption:"Scuba diving at Sea Base in the Florida Keys"},
+          ].map(({ img, caption }) =>
+            <div className="figure" key={img}>
+              <div className="parallax-wrapper">
+                <motion.img src={img} style={{ y: foregroundY }}/>
+              </div>
+              <p style={{textAlign: "center", fontSize: "1.25rem", fontWeight: "300"}}>{caption}</p>
+            </div>
+          )
+        }
+      </div>
 
       <div className="home-page projects-section">
         <div className="projects-text-column">
-          <Slide direction="right" in={page4Transition} timeout={2000} appear>
-            <h1 className="projects-title">Projects</h1>
-          </Slide>
-          <Slide direction="right" in={page4Transition} timeout={1500} appear>
-            <p className="detail">My projects reflect a mix of community service, independent initiatives, and hands-on problem solving. I have completed 500+ hours of community service, contributing to local programs, volunteer efforts, and service-oriented initiatives that support my community. Alongside service work, I pursue personal projects that involve building practical tools, improving workflows, and exploring technical and analytical challenges. Across all projects, I emphasize responsibility, consistency, and learning through real-world application.</p>
-          </Slide>
+          <motion.h1 className="projects-title"
+            initial="hidden"
+            whileInView="visible"
+            variants={ wordAnimation }
+            viewport={{ once: true }}
+          >
+            Projects
+          </motion.h1>
+          <motion.div className="detail"
+            initial="hidden"
+            whileInView="visible"
+            variants={ paragraphAnimation }
+            viewport={{ once: true }}
+          >
+            {
+              ("My projects reflect a mix of community service, independent " +
+                "initiatives, and hands-on problem solving. I have " +
+                "completed 500+ hours of community service, contributing to " +
+                "local programs, volunteer efforts, and service-oriented " +
+                "initiatives that support my community. Alongside service " +
+                "work, I pursue personal projects that involve building " +
+                "practical tools, improving workflows, and exploring " +
+                "technical and analytical challenges. Across all projects, " +
+                "I emphasize responsibility, consistency, and learning " +
+                "through real-world application."
+              ).split(' ').map((word: string, i: number) =>
+                <motion.span key={i} variants={wordAnimation}>{word + ' '}</motion.span>
+              )
+            }
+          </motion.div>
         </div>
         <Swiper className="projects-carousel"
           modules={[Autoplay, Pagination, Navigation]}

@@ -26,8 +26,8 @@
 }
 
 .detail {
-  font-size: 1.8rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 3rem;
   font-weight: lighter;
   text-align: justify;
 }
@@ -50,6 +50,7 @@
 }
 
 .intro {
+  font-family: "Cormorant Garamond", serif;
   font-size: 11rem;
   font-weight: 200;
 }
@@ -77,7 +78,7 @@
 .biography-title {
   font-size: 11rem;
   font-weight: 200;
-  margin-bottom: 0.2rem;
+  margin-bottom: 3rem;
   margin-top: 0;
   width: 100%;
 }
@@ -103,10 +104,9 @@
 .pics-section .parallax-wrapper {
   /* Make div shorter than the image it wraps. Given 4 images in the row, 3rem
      padding (both sides), and 3x 0.2rem gaps, the width of each image is equal
-     to (100vw - 6.6rem) / 300 * 75. Setting height equal to width results in a
-     vertical overflow of 25%. Changing the multiplier at the end changes the 
-     visible percentage of the image. */
-  height: calc(((100vw - 6.6rem) / 300 * 85));
+     to (100vw - 6.6rem) / 4. Given 3:4 aspect ratio, setting
+     height = width results in a vertical overflow of 25%. */
+  height: calc(((100vw - 6.6rem) / 4));
   overflow-y: hidden;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .projects-title {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   font-size: 11rem;
   font-weight: 200;
   /* text-align: center; */

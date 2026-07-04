@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main>
       <div className="home-page">
-        <p className="section-title">Hi, I'm Quan</p>
+        <p className="section-title garamond">Hi, I'm Quan</p>
         <motion.div className="background" 
           style={{ filter }}
         >
@@ -59,7 +59,7 @@ export default function Home() {
         </Swiper>
 
         <div className="biography">
-          <AnimatedParagraph className="section-title"
+          <AnimatedParagraph className="section-title garamond "
             paragraph="I am a..."
           />
           <AnimatedParagraph className="biography-detail detail"
@@ -86,7 +86,7 @@ export default function Home() {
               <div className="parallax-wrapper">
                 <motion.img src={img} style={{ y: foregroundY }}/>
               </div>
-              <p>{caption}</p>
+              <p className="garamond">{caption}</p>
             </div>
           )
         }
@@ -94,7 +94,7 @@ export default function Home() {
 
       <div className="home-page projects-section">
         <div className="projects-text-column">
-          <AnimatedParagraph className="section-title"
+          <AnimatedParagraph className="section-title garamond"
             paragraph="Projects"
           />
           <AnimatedParagraph className="detail"

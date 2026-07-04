@@ -26,7 +26,6 @@
 }
 
 .section-title {
-  font-family: "Cormorant Garamond", serif;
   font-size: 11rem;
   font-weight: 200;
 }
@@ -57,12 +56,6 @@
   height: 100%;
   filter: brightness(50%);
   object-fit: cover;
-}
-
-.intro {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11rem;
-  font-weight: 200;
 }
 
 /* Page 2 styling */
@@ -97,7 +90,7 @@
 }
 
 .pics-section .figure p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 300;
   text-align: center;
 }

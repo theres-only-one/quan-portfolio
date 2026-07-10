@@ -1,5 +1,6 @@
 import "./Home.css";
 
+import MediaCard from "../components/MediaCard.tsx";
 import AnimatedParagraph from "../components/AnimatedParagraph.tsx";
 
 import { motion, useScroll, useTransform } from "motion/react"
@@ -77,17 +78,24 @@ export default function Home() {
       <div className="home-page pics-section">
         {
           [
-            {img:"pic1.jpg", caption:"A view worth the trek at Camp Chawanakee"},
-            {img:"pic2.jpg", caption:"Backcountry snow camping"},
-            {img:"pic4.JPG", caption:"Backpacking the California coast (Point Reyes)"},
-            {img:"pic5.jpg", caption:"Scuba diving at Sea Base in the Florida Keys"},
-          ].map(({ img, caption }, index: number) =>
-            <div className="figure" style={{marginTop: (index%2)?"10%":"-10%"}} key={img}>
-              <div className="parallax-wrapper">
-                <motion.img src={img} style={{ y: foregroundY }}/>
-              </div>
-              <p className="garamond">{caption}</p>
-            </div>
+            {img:"pic1.jpg", altText:"A view worth the trek at Camp Chawanakee",captionTitle:"Camp Chawanakee",
+              captionBody:"A view worth the trek at Camp Chawanakee", 
+              captionLocation:"Sierra National Forest, CA",},
+            {img:"pic2.jpg", altText:"Backcountry snow camping", captionTitle:"Backcountry Snow Camping", 
+              captionBody:"Backcountry snow camping", 
+              captionLocation:"Rocky Mountains, CO"},
+            {img:"pic4.JPG", altText:"Backpacking the California coast (Point Reyes)", captionTitle:"California Coast", 
+              captionBody:"Backpacking the California coast (Point Reyes)", 
+              captionLocation:"Point Reyes National Seashore, CA"},
+            {img:"pic5.jpg", altText:"Scuba diving at Sea Base in the Florida Keys", captionTitle:"Scuba Diving", 
+              captionBody:"Scuba diving at Sea Base in the Florida Keys", 
+              captionLocation:"Florida Keys, FL"},
+          ].map(({ img, altText, captionTitle, captionBody, captionLocation }, index: number) =>
+            <MediaCard key={index} image={img} altText={altText} 
+              captionTitle={captionTitle}
+              captionBody={captionBody}
+              captionLocation={captionLocation}
+            />
           )
         }
       </div>

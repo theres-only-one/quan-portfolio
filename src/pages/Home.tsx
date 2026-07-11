@@ -76,28 +76,37 @@ export default function Home() {
       </div>
       
       <div className="home-page pics-section">
-        {
-          [
-            {img:"pic1.jpg", altText:"A view worth the trek at Camp Chawanakee",captionTitle:"Camp Chawanakee",
-              captionBody:"A view worth the trek at Camp Chawanakee", 
-              captionLocation:"Sierra National Forest, CA",},
-            {img:"pic2.jpg", altText:"Backcountry snow camping", captionTitle:"Backcountry Snow Camping", 
-              captionBody:"Backcountry snow camping", 
-              captionLocation:"Rocky Mountains, CO"},
-            {img:"pic4.JPG", altText:"Backpacking the California coast (Point Reyes)", captionTitle:"California Coast", 
-              captionBody:"Backpacking the California coast (Point Reyes)", 
-              captionLocation:"Point Reyes National Seashore, CA"},
-            {img:"pic5.jpg", altText:"Scuba diving at Sea Base in the Florida Keys", captionTitle:"Scuba Diving", 
-              captionBody:"Scuba diving at Sea Base in the Florida Keys", 
-              captionLocation:"Florida Keys, FL"},
-          ].map(({ img, altText, captionTitle, captionBody, captionLocation }, index: number) =>
-            <MediaCard key={index} image={img} altText={altText} 
-              captionTitle={captionTitle}
-              captionBody={captionBody}
-              captionLocation={captionLocation}
-            />
-          )
-        }
+        <AnimatedParagraph className="pics-title garamond"
+          paragraph="Moments from the journey"
+        />
+
+        <AnimatedParagraph className="pics-subtitle"
+          paragraph="A collection of adventures across mountains, coastlines, and everything in between"
+        />
+        <div className="cards-wrapper">
+          {
+            [
+              {img:"pic1.jpg", altText:"A view worth the trek at Camp Chawanakee",captionTitle:"Camp Chawanakee",
+                captionBody:"A scenic trek to a lakeside camp with breathtaking views and peaceful nights", 
+                captionLocation:"Sierra National Forest, CA",},
+              {img:"pic2.jpg", altText:"Backcountry snow camping", captionTitle:"Backcountry Snow Camping", 
+                captionBody:"Backcountry snow camping in the Sierra Nevada mountains, embracing the beauty of winter wilderness", 
+                captionLocation:"Rocky Mountains, CO"},
+              {img:"pic4.JPG", altText:"Backpacking the California coast (Point Reyes)", captionTitle:"Backpacking Point Reyes", 
+                captionBody:"Backpacking the California coast, exploring rugged cliffs, sandy beaches, and breathtaking ocean views", 
+                captionLocation:"Point Reyes National Seashore, CA"},
+              {img:"pic5.jpg", altText:"Scuba diving at Sea Base in the Florida Keys", captionTitle:"Scuba Diving", 
+                captionBody:"Scuba diving at Sea Base in the Florida Keys", 
+                captionLocation:"Florida Keys, FL"},
+            ].map(({ img, altText, captionTitle, captionBody, captionLocation }, index: number) =>
+              <MediaCard className="figure" key={index} image={img} altText={altText} 
+                captionTitle={captionTitle}
+                captionBody={captionBody}
+                captionLocation={captionLocation}
+              />
+            )
+          }
+        </div>
       </div>
 
       <div className="home-page projects-section">

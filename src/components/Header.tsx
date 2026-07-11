@@ -1,7 +1,7 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import p from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
@@ -15,7 +15,7 @@ export default function Header() {
     <AppBar position="sticky" sx={{ backgroundColor: '#161616' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <p
+          <Typography
             variant="h6"
             noWrap
             component="a"
@@ -31,7 +31,7 @@ export default function Header() {
             }}
           >
             QUAN
-          </p>
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button

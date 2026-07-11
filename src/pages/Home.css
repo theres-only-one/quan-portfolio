@@ -62,7 +62,7 @@
 
 .about-section {
   margin-top: 15rem;
-  gap: 10rem
+  gap: 10rem;
 }
 
 .about-carousel {
@@ -79,33 +79,44 @@
 }
 
 /* Page 3 styling */
-
 .pics-section {
-  gap: 1rem;
-  margin: 15rem 0;
+  flex-direction: column;
+  margin-bottom: 15rem;
 }
 
-.pics-section .figure {
-  flex-basis: 25%; /* 4 images in the row */
+.pics-title {
+  font-size: 6.5rem;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 13rem;
 }
 
-.pics-section .figure p {
+.pics-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
   text-align: center;
+  width: 50%;
+  margin: 1rem auto;
 }
 
-.pics-section .parallax-wrapper {
-  /* Make div shorter than the image it wraps. Given 4 images in the row, 3rem
-     padding (both sides), and 3x 0.2rem gaps, the width of each image is equal
-     to (100vw - 6.6rem) / 4. Given 3:4 aspect ratio, setting
-     height = width results in a vertical overflow of 25%. */
-  height: calc(((100vw - 6.6rem) / 4));
-  overflow-y: hidden;
+.cards-wrapper {
+  margin-top: 5rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  /* margin-bottom: 5rem; */
 }
 
-.pics-section .parallax-wrapper img {
-  width: 100%; /* Fit parallax wrapper's width (will overflow height) */
+.cards-wrapper .figure {
+  flex-basis: 25%; /* 4 images in the row */
+  border-radius: 0.5rem;
+}
+
+.cards-wrapper .MuiCardMedia-root{
+  /* Given 4 images in the row, 10% margin (left and right), and 3x 1rem gaps,
+     the width of each image is equal to (80vw - 3rem) / 4. Given 3:4 aspect
+     ratio, height should be (80vw - 3rem) / 3. */
+  height: calc((80vw - 3rem) / 3);
 }
 
 /* Page 4 styling */

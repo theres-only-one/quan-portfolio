@@ -1,7 +1,6 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import AnimatedParagraph from "./AnimatedParagraph.tsx";
 
 
 interface MediaCardProps extends React.HTMLProps<HTMLDivElement> {
@@ -15,9 +14,8 @@ interface MediaCardProps extends React.HTMLProps<HTMLDivElement> {
 
 export default function MediaCard(props: MediaCardProps) {
   return (
-    <Card sx={{ width: 345, height: 600, position: 'relative', color: 'unset' }}>
+    <Card className={props.className} sx={{ position: 'relative', color: 'unset' }}>
       <CardMedia
-        sx={{ height: 600 }}
         image={props.image}
         title={props.altText}
       />
@@ -26,10 +24,10 @@ export default function MediaCard(props: MediaCardProps) {
             position: 'absolute', height: '30%', bottom: 0, width: '100%',
             background: 'linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)'
         }}>
-        <p style={{ color: 'white' }}>
+        <p style={{ color: 'white', fontWeight: 500, fontSize: '1.2rem' }}>
             {props.captionTitle}
         </p>
-        <p>
+        <p style={{ lineHeight: '2rem' }}>
             {props.captionBody}
         </p>
         <p>

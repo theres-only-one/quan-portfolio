@@ -52,7 +52,9 @@ export default function Home() {
               "about1.jpg",
               "about2.JPG",
               "about3.JPG",
-              "about4.jpg"
+              "about4.jpg",
+              "about5.jpg",
+              "about6.jpg",
             ].map((img) =>
               <SwiperSlide key={img}><img src={img}/></SwiperSlide>
             )
@@ -95,9 +97,9 @@ export default function Home() {
               {img:"pic4.JPG", altText:"Backpacking the California coast (Point Reyes)", captionTitle:"Backpacking Point Reyes", 
                 captionBody:"Backpacking the California coast, exploring rugged cliffs, sandy beaches, and breathtaking ocean views", 
                 captionLocation:"Point Reyes National Seashore, CA"},
-              {img:"pic5.jpg", altText:"Scuba diving at Sea Base in the Florida Keys", captionTitle:"Scuba Diving", 
-                captionBody:"Scuba diving at Sea Base in the Florida Keys", 
-                captionLocation:"Florida Keys, FL"},
+              {img:"pic5.jpg", altText:"Camping on the Stanislaus River", captionTitle:"Camping", 
+                captionBody:"Camping by the Stanislaus River, enjoying the tranquility of nature", 
+                captionLocation:"Camp Wolfeboro, CA"},
             ].map(({ img, altText, captionTitle, captionBody, captionLocation }, index: number) =>
               <MediaCard className="figure" key={index} image={img} altText={altText} 
                 captionTitle={captionTitle}

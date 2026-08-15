@@ -5,26 +5,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export default function Projects() {
   return (
     <main>
-      <h1 className="page-title garamond">My Projects</h1>
+      <div className="home-page">
+        <h1 className="section-title garamond">My Projects</h1>
+        
+        <img src="projectpage2.gif" className="background"/>
+      </div>
 
-      <Swiper className="projectsPage-carousel"
-          modules={[Autoplay, Pagination, Navigation]}
-          autoplay={{ delay: 5000 }}  
-          pagination={{ clickable: true }}
-          loop
-          navigation
-          spaceBetween={0}
-          slidesPerView={1}
-        >
-          {
-            [
-              "projectpage1.JPG",
+      <div className="home-page second-page">
 
-            ].map((img) =>
-              <SwiperSlide key={img}><img src={img}/></SwiperSlide>
-            )
-          }
-        </Swiper>
+      </div>
     </main>
   );
 }

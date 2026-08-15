@@ -1,14 +1,1 @@
 /* Projects page styles */
-.page-title {
-  font-weight: 200;
-  font-size: 8rem;
-  margin: 3rem 0 5rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.projectsPage-carousel {
-  --swiper-theme-color: lightgray; /* Override default color */
-  border-radius: 0.5rem;
-  max-height: 55vh;
-}

@@ -98,7 +98,7 @@ export default function Home() {
                 captionBody:"Backpacking the California coast, exploring rugged cliffs, sandy beaches, and breathtaking ocean views", 
                 captionLocation:"Point Reyes National Seashore, CA"},
               {img:"pic5.jpg", altText:"Camping on the Stanislaus River", captionTitle:"Camping", 
-                captionBody:"Camping by the Stanislaus River, enjoying the tranquility of nature", 
+                captionBody:"Camping by the Stanislaus River, enjoying the serenity of nature", 
                 captionLocation:"Camp Wolfeboro, CA"},
             ].map(({ img, altText, captionTitle, captionBody, captionLocation }, index: number) =>
               <MediaCard className="figure" key={index} image={img} altText={altText} 

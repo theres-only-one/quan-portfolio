@@ -1,1 +1,21 @@
 /* Projects page styles */
+.background-gradient{
+    position: absolute;
+    top: 100vh;
+    height: calc(44px + 1.53125rem);
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 0;
+}
+
+.second-page {
+    margin-top: calc(44px + 1.53125rem);
+    flex-direction: column;
+    height: 110vh;
+}
+
+.page2Carousel {
+    width: 90%;
+    height: 685px;
+    flex-basis: unset;
+}

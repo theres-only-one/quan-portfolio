@@ -48,7 +48,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  top: 0;
+  top: calc(44px + 1.53125rem);
   filter: brightness(60%);  /* projects gif brightness */
   object-fit: cover; /* projects gif fit */
 }
